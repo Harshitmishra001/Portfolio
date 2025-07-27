@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harshit Mishra - AI & Machine Learning Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e2e8f0;
+        }
+        .font-roboto-mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+        .glassmorphism {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-gradient {
+            background: linear-gradient(to right, #38bdf8, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold mb-12 text-center text-gradient;
+        }
+        .tag {
+            @apply inline-block bg-sky-400/10 text-sky-400 text-xs font-semibold px-3 py-1 rounded-full;
+        }
+        .card-hover {
+            @apply transition-all duration-300 ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(56, 189, 248, 0.3);
+        }
+        /* Scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+
+        /* Fade-in animation */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-white">
+                HM<span class="text-sky-400">.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#about" class="text-slate-300 hover:text-sky-400 transition-colors">About</a>
+                <a href="#experience" class="text-slate-300 hover:text-sky-400 transition-colors">Experience</a>
+                <a href="#projects" class="text-slate-300 hover:text-sky-400 transition-colors">Projects</a>
+                <a href="#skills" class="text-slate-300 hover:text-sky-400 transition-colors">Skills</a>
+                <a href="#contact" class="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-4 py-2 rounded-lg transition-all duration-300">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/90 backdrop-blur-sm">
+            <a href="#about" class="block py-2 px-4 text-sm text-slate-300 hover:bg-sky-500/20">About</a>
+            <a href="#experience" class="block py-2 px-4 text-sm text-slate-300 hover:bg-sky-500/20">Experience</a>
+            <a href="#projects" class="block py-2 px-4 text-sm text-slate-300 hover:bg-sky-500/20">Projects</a>
+            <a href="#skills" class="block py-2 px-4 text-sm text-slate-300 hover:bg-sky-500/20">Skills</a>
+            <a href="#contact" class="block py-2 px-4 text-sm text-slate-300 hover:bg-sky-500/20">Contact</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6">
+
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex items-center justify-center text-center">
+            <div class="z-10">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
+                    Harshit Mishra
+                </h1>
+                <p class="text-xl md:text-2xl font-medium text-slate-300 mb-8">
+                    I build intelligent systems with <span id="typing-text" class="font-roboto-mono text-gradient font-bold"></span>
+                </p>
+                <div class="flex justify-center space-x-6">
+                    <a href="https://github.com/Harshitmishra001" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors"><i data-feather="github" class="w-7 h-7"></i></a>
+                    <a href="https://linkedin.com/in/harshitmishra001" target="_blank" class="text-slate-400 hover:text-sky-400 transition-colors"><i data-feather="linkedin" class="w-7 h-7"></i></a>
+                    <a href="mailto:mishra.harshit.1308@gmail.com" class="text-slate-400 hover:text-sky-400 transition-colors"><i data-feather="mail" class="w-7 h-7"></i></a>
+                </div>
+            </div>
+            <div class="absolute inset-0 bg-grid-slate-700/[0.05] bg-[bottom_1px_center] [mask-image:linear-gradient(to_bottom,transparent,black)]"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 md:py-32 fade-in-section">
+            <h2 class="section-title">About Me</h2>
+            <div class="grid md:grid-cols-5 gap-10 items-center">
+                <div class="md:col-span-3 text-lg text-slate-300 space-y-4">
+                    <p>I am an AI undergraduate with a strong foundation in <span class="text-sky-400 font-semibold">Deep Learning</span>, <span class="text-sky-400 font-semibold">Computer Vision</span>, and <span class="text-sky-400 font-semibold">Natural Language Processing</span>. My passion lies in designing and building intelligent systems that solve real-world problems.</p>
+                    <p>As an active contributor to open-source ML projects and a co-author of two research papers, I thrive on pushing the boundaries of what's possible in AI. I have hands-on experience building robust systems using PyTorch, Flask, and various NLP models.</p>
+                     <p>I'm always eager to learn, collaborate, and take on new challenges in the ever-evolving field of artificial intelligence.</p>
+                </div>
+                <div class="md:col-span-2 flex justify-center md:justify-end">
+                    <div class="w-64 h-64 rounded-full bg-gradient-to-br from-sky-500 to-purple-500 p-1">
+                        <img src="https://placehold.co/400x400/0a0a0a/FFFFFF?text=HM" alt="Harshit Mishra" class="rounded-full w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x400/0a0a0a/FFFFFF?text=HM';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 md:py-32 fade-in-section">
+            <h2 class="section-title">Experience</h2>
+            <div class="relative border-l-2 border-sky-500/30 pl-10">
+                <!-- Timeline Item -->
+                <div class="mb-12">
+                    <div class="absolute -left-2.5 top-1 w-5 h-5 bg-sky-500 rounded-full border-4 border-gray-900"></div>
+                    <p class="text-sm text-slate-400 mb-1">Apr 2024 - Nov 2024</p>
+                    <h3 class="text-xl font-bold text-white">Contributor (ML & Web)</h3>
+                    <p class="text-md text-slate-300 mb-3">GirlScript Summer of Code (Remote)</p>
+                    <ul class="list-disc list-inside text-slate-400 space-y-2">
+                        <li>Optimized TF-IDF pipelines and engineered features, increasing sentiment classification accuracy by 5%.</li>
+                        <li>Developed a price extractor for Scrape ML, improving scraping precision by 10% across 3 data sources.</li>
+                        <li>Refactored Flask backend, reducing data processing time by 40% (from 5s to 3s per request).</li>
+                    </ul>
+                </div>
+                <!-- Add more experience items here if needed -->
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section id="publications" class="py-20 md:py-32 fade-in-section">
+            <h2 class="section-title">Publications</h2>
+            <div class="space-y-8">
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <p class="text-sm text-slate-400 mb-2">Under Review at IETE Journal of Research (Taylor & Francis)</p>
+                    <h3 class="text-lg font-semibold text-white">Hybrid Vision Transformer + ConvNeXt Network with CBAM for Robust Multistage Glaucoma Classification and Early Detection</h3>
+                    <p class="text-slate-400 mt-2">Mishra, H., Akhter, A., Sharma, A., & Tyagi, P. K.</p>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <p class="text-sm text-slate-400 mb-2">Under Review at Signal, Image and Video Processing (Springer Nature)</p>
+                    <h3 class="text-lg font-semibold text-white">A Hybrid DCT-Based Watermarking Scheme for Robust and Fragile Tamper Localization Using Iterative LSB Stabilization</h3>
+                    <p class="text-slate-400 mt-2">Mishra, H., Lone, M. R., Sharma, A., & Tyagi, P. K.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 md:py-32 fade-in-section">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Project Card 1 -->
+                <div class="glassmorphism p-6 rounded-lg flex flex-col card-hover">
+                    <div class="flex-grow">
+                        <p class="text-sm text-slate-400 mb-2">May 2025</p>
+                        <h3 class="text-xl font-bold text-white mb-3">Text Generation with Simple GPT Architecture</h3>
+                        <p class="text-slate-300 mb-4">Recreated a minimal GPT model in PyTorch, training on custom text corpora. Demonstrated token prediction, attention mechanisms, and transformer behavior, showcasing deep technical understanding of generative models.</p>
+                    </div>
+                    <div class="mt-4">
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">Generative AI</span>
+                        <span class="tag">Transformers</span>
+                    </div>
+                </div>
+                <!-- Project Card 2 -->
+                <div class="glassmorphism p-6 rounded-lg flex flex-col card-hover">
+                    <div class="flex-grow">
+                        <p class="text-sm text-slate-400 mb-2">Sep - Dec 2024</p>
+                        <h3 class="text-xl font-bold text-white mb-3">Resume Analyzer (NLP Chatbot)</h3>
+                        <p class="text-slate-300 mb-4">Engineered an NLP chatbot that matched resumes to job descriptions with 85% semantic accuracy, providing tailored suggestions based on JD gaps.</p>
+                    </div>
+                    <div class="mt-4">
+                        <span class="tag">NLP</span>
+                        <span class="tag">Chatbot</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 md:py-32 fade-in-section">
+            <h2 class="section-title">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-center">
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Python</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Java</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">SQL</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">HTML/CSS/JS</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">PyTorch</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Flask</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Git & GitHub</h3>
+                </div>
+                <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Linux</h3>
+                </div>
+                 <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Scikit-learn</h3>
+                </div>
+                 <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Deep Learning</h3>
+                </div>
+                 <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">Computer Vision</h3>
+                </div>
+                 <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <h3 class="text-lg font-semibold text-white">NLP</h3>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Education Section -->
+        <section id="education" class="py-20 md:py-32 fade-in-section">
+            <h2 class="section-title">Education</h2>
+            <div class="max-w-2xl mx-auto">
+                 <div class="glassmorphism p-6 rounded-lg card-hover">
+                    <p class="text-sm text-slate-400 mb-1">2023 - 2027</p>
+                    <h3 class="text-xl font-bold text-white">B.Tech, Artificial Intelligence</h3>
+                    <p class="text-md text-slate-300">VIT Bhopal University</p>
+                    <p class="text-sm text-slate-400 mt-1">CGPA: 8.85</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 md:py-32 text-center fade-in-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="max-w-2xl mx-auto text-lg text-slate-300 mb-8">
+                I'm currently seeking new opportunities and am open to collaborations. Whether you have a question or just want to say hi, my inbox is always open. I'll do my best to get back to you!
+            </p>
+            <a href="mailto:mishra.harshit.1308@gmail.com" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 text-lg">
+                Say Hello
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-slate-400">
+        <p>Designed & Built by Harshit Mishra</p>
+        <p class="font-roboto-mono text-sm">Hosted on GitHub Pages</p>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button id="scroll-to-top" class="fixed bottom-5 right-5 p-3 rounded-full bg-sky-500/80 text-white hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-sky-500 transition-opacity duration-300 opacity-0">
+        <i data-feather="arrow-up" class="w-6 h-6"></i>
+    </button>
+
+    <script>
+        // --- Feather Icons ---
+        feather.replace();
+
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // --- Header scroll effect ---
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-gray-900/80', 'backdrop-blur-sm', 'shadow-lg');
+            }
+        });
+
+        // --- Typing effect ---
+        const typingText = document.getElementById('typing-text');
+        const words = ["Deep Learning.", "Computer Vision.", "NLP.", "Generative AI."];
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            if (isDeleting) {
+                typingText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+            }
+
+            const typeSpeed = isDeleting ? 100 : 200;
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', type);
+
+        // --- Scroll-to-top button ---
+        const scrollToTopButton = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopButton.classList.remove('opacity-0');
+            } else {
+                scrollToTopButton.classList.add('opacity-0');
+            }
+        });
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Fade-in on scroll ---
+        const sections = document.querySelectorAll('.fade-in-section');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px',
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+    </script>
+</body>
+</html>
